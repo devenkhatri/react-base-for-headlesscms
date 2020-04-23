@@ -3,6 +3,9 @@ A simple implementation on how to use a RESTful API to create a React applicatoi
 
 This application has been created from article on Pusher blog. You can read about it [here](https://pusher.com/tutorials/consume-restful-api-react)
 
+Light Version of Theme taken from [https://bootswatch.com/flatly/](https://bootswatch.com/flatly/)
+Light Version of Theme taken from [https://bootswatch.com/darkly/](https://bootswatch.com/darkly/)
+
 ## Set up
 To set up this project, first clone the repository
 ```bash
