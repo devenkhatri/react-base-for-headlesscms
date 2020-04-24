@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const CommentsListing = ({ comments }) => {
     return (
@@ -7,12 +7,15 @@ const CommentsListing = ({ comments }) => {
             <h1>All Comments</h1>
             <h6>Total Count = {comments.length}</h6>
             {comments.map((comment) => (
-                <Alert variant="success">
-                    <Alert.Heading>{comment.name}</Alert.Heading>
-                    <p>{comment.email}</p>
-                    <hr />
-                    <p className="mb-0">{comment.body}</p>
-                </Alert>
+                <Card className="m-4" key={comment.id}>
+                    <Card.Header>{comment.name}</Card.Header>
+                    <Card.Body>
+                        <Card.Subtitle className="mb-2 text-muted">{comment.email}</Card.Subtitle>
+                        <Card.Text>
+                            {comment.body}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
             ))}
 
         </div>

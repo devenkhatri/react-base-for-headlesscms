@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../components/layout';
 import {Alert, Spinner} from 'react-bootstrap';
-import ToDoListing from '../components/todolisting';
+import PhotosListing from '../components/photoslisting';
 
 class Photos extends Component {
     
@@ -41,7 +41,7 @@ class Photos extends Component {
                 {this.state.error && <Alert variant="warning"><Alert.Heading>Error fetching data.</Alert.Heading>See browser console for detailed error message<hr/>Refresh the page to try again !!!</Alert>}
                 {this.state.loading && <Spinner animation="grow" variant="success" />}
                 {/* ADD PAGE COMPONENTS BELOW */}
-                <ToDoListing todos={this.state.photos} />
+                <PhotosListing photos={this.state.photos} />
             </Layout>
         )
     }
