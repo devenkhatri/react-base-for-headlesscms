@@ -4,7 +4,8 @@ import { Row, Col, Card } from 'react-bootstrap';
 const UserListing = ({ users }) => {
     return (
         <div>
-            <center><h1>All Users List</h1></center>
+            <h1>All Users List</h1>
+            <h6>Total Count = {users.length}</h6>
             <Row className="p-4 flex-wrap">
                 {users.map((user) => (
                     <Col className="col-lg-3 mb-4" key={user.id}>

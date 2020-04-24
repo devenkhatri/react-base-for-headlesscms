@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
 import Layout from '../components/layout';
 import {Alert, Spinner} from 'react-bootstrap';
-import PostListing from '../components/postlisting';
+import ToDoListing from '../components/todolisting';
 
-class Posts extends Component {
+class Photos extends Component {
+    
     state = {
         loading: true,
         error: false,
-        userid : this.props.match.params.userid,
-        posts: []
+        albumid : this.props.match.params.albumid,
+        photos: []
     };
 
     fetchDatafromAPI = () => {
-        let apiURL = this.state.userid ? ("https://jsonplaceholder.typicode.com/users/" + this.state.userid + "/posts") : "https://jsonplaceholder.typicode.com/posts";
+        let apiURL = "https://jsonplaceholder.typicode.com/albums/" + this.state.albumid + "/photos";
         console.log("API URL being called : "+apiURL)
         fetch(apiURL)
             .then(res => res.json())
             .then((data) => {
-                this.setState({ 
-                    posts: data,
-                    loading: false 
+                this.setState({
+                    photos: data,
+                    loading: false
                 })
             })
             .catch(error => {
@@ -40,10 +41,10 @@ class Posts extends Component {
                 {this.state.error && <Alert variant="warning"><Alert.Heading>Error fetching data.</Alert.Heading>See browser console for detailed error message<hr/>Refresh the page to try again !!!</Alert>}
                 {this.state.loading && <Spinner animation="grow" variant="success" />}
                 {/* ADD PAGE COMPONENTS BELOW */}
-                <PostListing posts={this.state.posts} />
+                <ToDoListing todos={this.state.photos} />
             </Layout>
         )
     }
 }
 
-export default Posts;
+export default Photos;

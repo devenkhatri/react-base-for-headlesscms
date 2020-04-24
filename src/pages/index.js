@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import Layout from '../components/layout';
-import Loader from 'react-loader-spinner'
+import {Alert, Spinner} from 'react-bootstrap';
 import UserListing from '../components/userlisting';
 
 class Home extends Component {
     state = {
         loading: true,
+        error: false,
         users: []
     };
 
     fetchDatafromAPI = () => {
-        fetch("https://jsonplaceholder.typicode.com/users")
+        let apiURL = "https://jsonplaceholder.typicode.com/users";
+        console.log("API URL being called : "+apiURL)
+        fetch(apiURL)
             .then(res => res.json())
             .then((data) => {
                 this.setState({ 
@@ -19,8 +22,11 @@ class Home extends Component {
                 })
             })
             .catch(error => {
+                this.setState({ 
+                    error: true,
+                    loading: false 
+                })
                 console.log(error);
-                this.wait();
             });
     };
     componentDidMount() {
@@ -29,8 +35,9 @@ class Home extends Component {
 
     render() {
         return (
-            <Layout title="Homepage">
-                {this.state.loading && <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" />}
+            <Layout>
+                {this.state.error && <Alert variant="warning"><Alert.Heading>Error fetching data.</Alert.Heading>See browser console for detailed error message<hr/>Refresh the page to try again !!!</Alert>}
+                {this.state.loading && <Spinner animation="grow" variant="success" />}
                 {/* ADD PAGE COMPONENTS BELOW */}
                 <UserListing users={this.state.users} />
             </Layout>

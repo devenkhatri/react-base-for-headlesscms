@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
 import Layout from '../components/layout';
 import {Alert, Spinner} from 'react-bootstrap';
-import PostListing from '../components/postlisting';
+import CommentsListing from '../components/commentslisting';
 
-class Posts extends Component {
+class Comments extends Component {
+    
     state = {
         loading: true,
         error: false,
-        userid : this.props.match.params.userid,
-        posts: []
+        postid : this.props.match.params.postid,
+        comments: []
     };
 
     fetchDatafromAPI = () => {
-        let apiURL = this.state.userid ? ("https://jsonplaceholder.typicode.com/users/" + this.state.userid + "/posts") : "https://jsonplaceholder.typicode.com/posts";
+        let apiURL = "https://jsonplaceholder.typicode.com/posts/" + this.state.postid + "/comments";
         console.log("API URL being called : "+apiURL)
         fetch(apiURL)
             .then(res => res.json())
             .then((data) => {
-                this.setState({ 
-                    posts: data,
-                    loading: false 
+                this.setState({
+                    comments: data,
+                    loading: false
                 })
             })
             .catch(error => {
@@ -40,10 +41,10 @@ class Posts extends Component {
                 {this.state.error && <Alert variant="warning"><Alert.Heading>Error fetching data.</Alert.Heading>See browser console for detailed error message<hr/>Refresh the page to try again !!!</Alert>}
                 {this.state.loading && <Spinner animation="grow" variant="success" />}
                 {/* ADD PAGE COMPONENTS BELOW */}
-                <PostListing posts={this.state.posts} />
+                <CommentsListing comments={this.state.comments} />
             </Layout>
         )
     }
 }
 
-export default Posts;
+export default Comments;
