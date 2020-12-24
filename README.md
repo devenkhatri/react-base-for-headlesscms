@@ -6,7 +6,7 @@ This application has been created from article on Pusher blog. You can read abou
 Light Version of Theme taken from [https://bootswatch.com/flatly/](https://bootswatch.com/flatly/)
 Light Version of Theme taken from [https://bootswatch.com/darkly/](https://bootswatch.com/darkly/)
 
-# Dummy JSON APIs used 
+## Dummy JSON APIs used 
 - https://jsonplaceholder.typicode.com/users
 - https://jsonplaceholder.typicode.com/posts
 - https://jsonplaceholder.typicode.com/albums
