@@ -7,10 +7,10 @@ Light Version of Theme taken from [https://bootswatch.com/flatly/](https://boots
 Light Version of Theme taken from [https://bootswatch.com/darkly/](https://bootswatch.com/darkly/)
 
 # Dummy JSON APIs used 
-https://jsonplaceholder.typicode.com/users
-https://jsonplaceholder.typicode.com/posts
-https://jsonplaceholder.typicode.com/albums
-https://jsonplaceholder.typicode.com/todos
+- https://jsonplaceholder.typicode.com/users
+- https://jsonplaceholder.typicode.com/posts
+- https://jsonplaceholder.typicode.com/albums
+- https://jsonplaceholder.typicode.com/todos
 
 ## Set up
 To set up this project, first clone the repository
